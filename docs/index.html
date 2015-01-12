@@ -23,7 +23,7 @@
     <a title="SMCKit  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p class="header-text"><a href="index.html">SMCKit Docs</a> (97% documented)</p>
+        <p class="header-text"><a href="index.html">SMCKit Docs</a> (98% documented)</p>
         <p id="header-links"><a href="http://github.com/beltex/SMCKit"><img id="header-icon" src="img/gh.png" height="16px" width="16px" />View on GitHub</a></p>
       </div>
     </header>
@@ -39,14 +39,6 @@
     <div class="content-wrapper">
       <nav class="book-parts">
         <ul class="nav-parts">
-          <li class="part-name tasks">
-          <a href="Classes.html">Classes</a>
-            <ul class="nav-chapters">
-              <li class="nav-chapter">
-                <a href="Classes/SMC.html">SMC</a>
-              </li>
-            </ul>
-          </li>
           <li class="part-name tasks">
           <a href="Global Variables.html">Global Variables</a>
             <ul class="nav-chapters">
@@ -205,6 +197,14 @@
               </li>
             </ul>
           </li>
+          <li class="part-name tasks">
+          <a href="Structs.html">Structs</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="Structs/SMC.html">SMC</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <div class="pixel-line"></div>
@@ -218,7 +218,13 @@
 <p class="para">A System Management Controller (SMC) library in pure Swift from user space for
 Intel based Macs. The library works by talking to the AppleSMC.kext (kernel
 extension), the closed source driver for the SMC. Read temperature sensors,
-get and set fan speed (RPM), and more.</p><p class="para">For a C based version see <a href="https://github.com/beltex/libsmc">libsmc</a>.</p><a href='#system_management_controller' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='system_management_controller'>System Management Controller</h3>
+get and set fan speed (RPM), and more.</p>
+<ul>
+<li>For a C based version, see <a href="https://github.com/beltex/libsmc">libsmc</a></li>
+<li>For other system related statistics in Swift for OS X, see
+<a href="https://github.com/beltex/SystemKit">SystemKit</a></li>
+</ul>
+<a href='#system_management_controller' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='system_management_controller'>System Management Controller</h3>
 <p class="para"><em><q>The System Management Controller (SMC) is an internal subsystem introduced by
 Apple Inc. with the introduction of their new Intel processor based machines
 in 2006. It takes over the functions of the SMU. The SMC manages thermal and
@@ -278,9 +284,9 @@ adding <code>-D DEBUG</code> to the <strong>Other Swift Flags</strong> setting i
 // import IOKit
 </span><span class="kd">import</span> <span class="kt">SMCKit</span>
 
-<span class="k">let</span> <span class="nv">smc</span> <span class="o">=</span> <span class="kt">SMC</span><span class="p">()</span>
+<span class="k">var</span> <span class="nv">smc</span> <span class="o">=</span> <span class="kt">SMC</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">smc</span><span class="o">.</span><span class="nf">open</span><span class="p">()</span> <span class="o">==</span> <span class="n">kIOReturnSuccess</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="n">smc</span><span class="o">.</span><span class="nf">open</span><span class="p">()</span> <span class="o">==</span> <span class="n">kIOReturnSuccess</span> <span class="p">{</span>
     <span class="nf">println</span><span class="p">(</span><span class="s">"CPU 0 Diode Temperature: </span><span class="se">\(</span><span class="n">smc</span><span class="o">.</span><span class="nf">getTemperature</span><span class="p">(</span><span class="kt">SMC</span><span class="o">.</span><span class="kt">Temperature</span><span class="o">.</span><span class="kt">CPU_0_DIODE</span><span class="p">)</span><span class="o">.</span><span class="n">tmp</span><span class="se">)</span><span class="s">°C"</span><span class="p">)</span>
     <span class="nf">println</span><span class="p">(</span><span class="s">"Fan 0 Speed: </span><span class="se">\(</span><span class="n">smc</span><span class="o">.</span><span class="nf">getFanRPM</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rpm</span><span class="se">)</span><span class="s"> RPM"</span><span class="p">)</span>
     <span class="n">smc</span><span class="o">.</span><span class="nf">close</span><span class="p">()</span>
@@ -333,8 +339,9 @@ currently offers no
 <p class="para">There are many projects that interface with the SMC for one purpose or another. Credit is most
 certainly due to them for the reference code. Such projects as:</p>
 <ul>
-<li><a href="https://www.apple.com/downloads/dashboard/status/istatpro.html">iStat Pro</a></li>
+<li>iStat Pro</li>
 <li><a href="https://github.com/lavoiesl/osx-cpu-temp">osx-cpu-temp</a></li>
+<li><a href="http://www.opensource.apple.com/source/PowerManagement/">PowerManagement</a></li>
 <li><a href="https://github.com/hholtmann/smcFanControl">smcFanControl</a></li>
 </ul>
 <p class="para">Handy I/O Kit references:</p>
@@ -344,11 +351,11 @@ certainly due to them for the reference code. Such projects as:</p>
 <li><a href="http://www.apress.com/9781430235361-4892">OS X and iOS Kernel Programming</a></li>
 </ul>
 <a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='license'>License</h3>
-<p class="para">This project is under the <strong>GNU General Public License v2.0</strong>.</p><a href='#fun' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='fun'>Fun</h3>
-<p class="para">While the SMC driver is closed source, the definition of certain structs needed
-to interact with it (see <code>SMCParamStruct</code>) happened to appear in the open source
-Apple <strong>PowerManagement</strong> project at around version 211, and soon after
-disappeared. They can be seen in the
+<p class="para">This project is under the <strong>MIT License</strong>.</p><a href='#fun' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='fun'>Fun</h3>
+<p class="para">While the SMC driver is closed source, the call strucutre and definition of
+certain structs needed to interact with it (see <code>SMCParamStruct</code>) happened to
+appear in the open source Apple <strong>PowerManagement</strong> project at around version
+211, and soon after disappeared. They can be seen in the
 <a href="http://www.opensource.apple.com/source/PowerManagement/PowerManagement-211/pmconfigd/PrivateLib.c">PrivateLib.c</a>
 file under <code>pmconfigd</code>. In the very same source file, the following snippet can be
 found:</p><pre class="highlight c"><code><span class="c1">// And simply AppleSMC with kCFBooleanTrue to let them know time is changed.
@@ -363,8 +370,8 @@ found:</p><pre class="highlight c"><code><span class="c1">// And simply AppleSMC
           </section>
         </section>
         <section id="footer">
-          <p class="copyright">&copy; 2014 <a class="link" href="https://github.com/beltex/" target="_blank" rel="external">beltex</a>. All rights reserved. (Last updated: 2014-12-19)</p>
-          <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.0.17</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p class="copyright">&copy; 2015 <a class="link" href="https://github.com/beltex/" target="_blank" rel="external">beltex</a>. All rights reserved. (Last updated: 2015-01-12)</p>
+          <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.0.20</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
