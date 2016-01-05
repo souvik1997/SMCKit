@@ -536,6 +536,61 @@ public struct TemperatureSensors {
                                    code: FourCharCode(fromStaticString: "TI0P"))
     public static let THUNDERBOLT_1 = TemperatureSensor(name: "THUNDERBOLT_1",
                                    code: FourCharCode(fromStaticString: "TI1P"))
+    
+    // From http://stackoverflow.com/questions/28568775/description-for-apples-smc-keys
+    
+    public static let PECI_CPU = TemperatureSensor(name: "PECI_CPU",
+        code: FourCharCode(fromStaticString: "TCXC"))
+    public static let PECI_CPU_2 = TemperatureSensor(name: "PECI_CPU",
+        code: FourCharCode(fromStaticString: "TCXc"))
+    public static let CPU_0_DIE_2 = TemperatureSensor(name: "CPU_0_DIE",
+        code: FourCharCode(fromStaticString: "TC0E"))
+    public static let CPU_CORE_1 = TemperatureSensor(name: "CPU_CORE_1",
+        code: FourCharCode(fromStaticString: "TC1C"))
+    public static let CPU_CORE_2 = TemperatureSensor(name: "CPU_CORE_2",
+        code: FourCharCode(fromStaticString: "TC2C"))
+    public static let CPU_CORE_3 = TemperatureSensor(name: "CPU_CORE_3",
+        code: FourCharCode(fromStaticString: "TC3C"))
+    public static let CPU_CORE_4 = TemperatureSensor(name: "CPU_CORE_4",
+        code: FourCharCode(fromStaticString: "TC4C"))
+    public static let CPU_CORE_5 = TemperatureSensor(name: "CPU_CORE_5",
+        code: FourCharCode(fromStaticString: "TC5C"))
+    public static let CPU_CORE_6 = TemperatureSensor(name: "CPU_CORE_6",
+        code: FourCharCode(fromStaticString: "TC6C"))
+    public static let CPU_CORE_7 = TemperatureSensor(name: "CPU_CORE_7",
+        code: FourCharCode(fromStaticString: "TC7C"))
+    public static let CPU_CORE_8 = TemperatureSensor(name: "CPU_CORE_8",
+        code: FourCharCode(fromStaticString: "TC8C"))
+    
+    public static let PECI_SA = TemperatureSensor(name: "PECI_SA",
+        code: FourCharCode(fromStaticString: "TCSC"))
+    public static let PECI_SA_2 = TemperatureSensor(name: "PECI_SA",
+        code: FourCharCode(fromStaticString: "TCSc"))
+    public static let PECI_SA_3 = TemperatureSensor(name: "PECI_SA",
+        code: FourCharCode(fromStaticString: "TCSA"))
+    public static let PECI_GPU = TemperatureSensor(name: "PECI_GPU",
+        code: FourCharCode(fromStaticString: "TCGC"))
+    public static let PECI_GPU_2 = TemperatureSensor(name: "PECI_GPU",
+        code: FourCharCode(fromStaticString: "TCGc"))
+    public static let POWER_SUPPLY_1_ALT = TemperatureSensor(name: "POWER_SUPPLY_1_ALT",
+        code: FourCharCode(fromStaticString: "Tp0C"))
+    public static let POWER_SUPPLY_2 = TemperatureSensor(name: "POWER_SUPPLY_2",
+        code: FourCharCode(fromStaticString: "Tp1P"))
+    public static let POWER_SUPPLY_2_ALT = TemperatureSensor(name: "POWER_SUPPLY_2_ALT",
+        code: FourCharCode(fromStaticString: "Tp1C"))
+    public static let POWER_SUPPLY_3 = TemperatureSensor(name: "POWER_SUPPLY_3",
+        code: FourCharCode(fromStaticString: "Tp2P"))
+    public static let POWER_SUPPLY_4 = TemperatureSensor(name: "POWER_SUPPLY_4",
+        code: FourCharCode(fromStaticString: "Tp3P"))
+    public static let POWER_SUPPLY_5 = TemperatureSensor(name: "POWER_SUPPLY_5",
+        code: FourCharCode(fromStaticString: "Tp4P"))
+    public static let POWER_SUPPLY_6 = TemperatureSensor(name: "POWER_SUPPLY_6",
+        code: FourCharCode(fromStaticString: "Tp5P"))
+    
+    
+    
+    
+    
 
     public static let all = [AMBIENT_AIR_0.code : AMBIENT_AIR_0,
                              AMBIENT_AIR_1.code : AMBIENT_AIR_1,
@@ -565,7 +620,33 @@ public struct TemperatureSensors {
                              ODD_PROXIMITY.code : ODD_PROXIMITY,
                              PWR_SUPPLY_PROXIMITY.code : PWR_SUPPLY_PROXIMITY,
                              THUNDERBOLT_0.code : THUNDERBOLT_0,
-                             THUNDERBOLT_1.code : THUNDERBOLT_1]
+                             THUNDERBOLT_1.code : THUNDERBOLT_1,
+        PECI_CPU.code: PECI_CPU,
+        PECI_CPU_2.code: PECI_CPU_2,
+        CPU_0_DIE_2.code: CPU_0_DIE_2,
+        CPU_CORE_1.code: CPU_CORE_1,
+        CPU_CORE_2.code: CPU_CORE_2,
+        CPU_CORE_3.code: CPU_CORE_3,
+        CPU_CORE_4.code: CPU_CORE_4,
+        CPU_CORE_5.code: CPU_CORE_5,
+        CPU_CORE_6.code: CPU_CORE_6,
+        CPU_CORE_7.code: CPU_CORE_7,
+        CPU_CORE_8.code: CPU_CORE_8,
+        PECI_SA.code: PECI_SA,
+        PECI_SA_2.code: PECI_SA_2,
+        PECI_SA_3.code: PECI_SA_3,
+        PECI_GPU.code: PECI_GPU,
+        PECI_GPU_2.code: PECI_GPU_2,
+        POWER_SUPPLY_1_ALT.code: POWER_SUPPLY_1_ALT,
+        POWER_SUPPLY_2.code: POWER_SUPPLY_2,
+        POWER_SUPPLY_2_ALT.code: POWER_SUPPLY_2_ALT,
+        POWER_SUPPLY_3.code: POWER_SUPPLY_3,
+        POWER_SUPPLY_4.code: POWER_SUPPLY_4,
+        POWER_SUPPLY_5.code: POWER_SUPPLY_5,
+        POWER_SUPPLY_6.code: POWER_SUPPLY_6,
+        
+        
+    ]
 }
 
 public struct TemperatureSensor {
